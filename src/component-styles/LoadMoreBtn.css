@@ -1,0 +1,12 @@
+.load-more {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 40px;
+}
+
+.load-more > button {
+	border: none;
+	border-radius: 10px;
+	padding: 10px;
+	cursor: pointer;
+}

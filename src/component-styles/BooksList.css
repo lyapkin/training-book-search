@@ -1,0 +1,41 @@
+.search-result {
+	width: 80%;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.booklist {
+	display: flex;
+	flex-direction: column;
+}
+
+.booklist__item {
+	display: grid;
+	grid-template-areas: 
+		"img title"
+		"img author"
+		"img category";
+	grid-template-columns: 128px auto;
+	column-gap: 15px;
+	margin: 20px;
+	padding: 20px;
+	border: 1px solid #eee;
+	border-radius: 5px;
+}
+
+.booklist__item > img {
+	grid-area: img;
+}
+
+.booklist__item > a {
+	grid-area: title;
+}
+
+.booklist__item > span:first-child {
+	grid-area: author;
+}
+
+.booklist__item > span:last-child {
+	grid-area: category;
+}

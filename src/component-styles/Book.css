@@ -1,0 +1,32 @@
+.book {
+	display: grid;
+	grid-template-areas: 
+		"img title"
+		"img author"
+		"img category"
+		"img description";
+	grid-template-columns: 128px auto;
+	column-gap: 15px;
+	margin: 20px;
+	padding: 20px;
+}
+
+.book > img {
+	grid-area: img;
+}
+
+.book > h2 {
+	grid-area: title;
+}
+
+.book__authors {
+	grid-area: author;
+}
+
+.book__categories {
+	grid-area: category;
+}
+
+.book__description {
+	grid-area: description;
+}

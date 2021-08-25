@@ -1,0 +1,53 @@
+.header {
+	position: sticky;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background: #eee;
+}
+
+.header > form {
+	width:50%;
+}
+
+.header__search {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	background: #fff;
+	height: 30px;
+}
+
+.header__search > input {
+	flex-grow: 1;
+	border: none;
+	outline: none;
+	padding-right: 15px;
+	padding-left: 15px
+}
+
+.header__search > button {
+	border: none;
+	border-left: 1px solid #eee;
+	background: transparent;
+	width: 70px;
+	height: 70%;
+	cursor: pointer;
+}
+
+.header__filter {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.header__filter label {
+	margin-right: 10px;
+}
+
+.header__order {
+	margin-left: 30px;
+}
