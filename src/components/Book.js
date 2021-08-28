@@ -34,9 +34,9 @@ const Book = () => {
 	const content = book.title ? (
 		<div className='book'>
 			<img src={book.imageLinks.thumbnail} alt='' />
-			<h2>Title: {book.title}</h2>
+			<h2>{book.title}</h2>
 			<p className='book__categories'>Categories: {book.categories ? book.categories.join('/') : null}</p>
-			<p className='book__authors'>Authors :{book.authors ? book.authors.join(', ') : null}</p>
+			<p className='book__authors'>Authors: {book.authors ? book.authors.join(', ') : null}</p>
 			<div className='book__description'>
 				<span>Description:</span>
 				<p>{book.description}</p>

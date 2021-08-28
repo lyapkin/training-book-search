@@ -51,3 +51,9 @@
 .header__order {
 	margin-left: 30px;
 }
+
+@media all and (max-width: 800px) {
+	.header > form {
+		width: 90%;
+	}
+}

@@ -7,10 +7,13 @@
 
 .booklist {
 	display: flex;
-	flex-direction: column;
+	flex-wrap: wrap;
+	/* justify-content: space-around; */
 }
 
 .booklist__item {
+	flex: 1;
+	min-width: 300px;
 	display: grid;
 	grid-template-areas: 
 		"img title"
@@ -18,6 +21,7 @@
 		"img category";
 	grid-template-columns: 128px auto;
 	column-gap: 15px;
+	justify-content: stretch;
 	margin: 20px;
 	padding: 20px;
 	border: 1px solid #eee;
@@ -38,4 +42,17 @@
 
 .booklist__item > span:last-child {
 	grid-area: category;
+}
+
+@media all and (max-width: 500px) {
+	.search-result {
+		width: 99%;
+	}
+
+	.booklist__item {
+		width: 100%;
+		margin: 0;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
 }
