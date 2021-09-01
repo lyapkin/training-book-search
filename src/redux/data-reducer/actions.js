@@ -4,11 +4,18 @@ import {
 	GET_BOOKS_SUCCESS,
 	GET_MORE_BOOKS_SUCCESS,
 	GET_BOOKS_FAILURE,
-	GET_MORE_BOOKS_FAILURE
+	GET_MORE_BOOKS_FAILURE,
+	CHANGE_DATA
 } from './actionTypes'
 
 import {API} from '../../env'
 
+export const changeData = (data) => {
+	return {
+		type: CHANGE_DATA,
+		payload: data
+	}
+}
 
 const getBooksRequest = () => {
 	return {
@@ -56,8 +63,9 @@ export const getBooks = (req, isLoadMore) => {
 			dispatch(getBooksRequest())
 
 			const startIndex = 0
+			const url = `https://www.googleapis.com/books/v1/volumes?q=${req.searchString}+subject:${req.category}&orderBy=${req.order}&projection=lite&startIndex=${startIndex}&maxResults=30&fields=totalItems,items(id,volumeInfo(title,authors,imageLinks))&key=${API}`
 			
-			fetch(`https://www.googleapis.com/books/v1/volumes?q=${req.searchString}+subject:${req.category}&orderBy=${req.order}&projection=lite&startIndex=${startIndex}&maxResults=30&fields=totalItems,items(id,volumeInfo(title,authors,imageLinks))&key=${API}`)
+			fetch(url)
 				.then(res => {
 					if (res.ok) {
 						return res.json()
@@ -79,7 +87,7 @@ export const getBooks = (req, isLoadMore) => {
 	} else {
 		return (dispatch, getState) => {
 			dispatch(getMoreBooksRequest())
-
+			
 			const startIndex = getState().data.data.books.length
 			
 			fetch(`https://www.googleapis.com/books/v1/volumes?q=${req.searchString}+subject:${req.category}&orderBy=${req.order}&projection=lite&startIndex=${startIndex}&maxResults=30&fields=totalItems,items(id,volumeInfo(title,authors,imageLinks))&key=${API}`)

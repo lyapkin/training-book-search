@@ -1,9 +1,8 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useDispatch} from 'react-redux'
-import {useHistory} from 'react-router-dom'
+import {useHistory, useLocation} from 'react-router-dom'
 
 import {getBooks} from '../redux/data-reducer/actions'
-import {saveReqParams} from '../redux/req-params-reducer/actions'
 
 import '../component-styles/Search.css'
 
@@ -18,15 +17,33 @@ const Search = () => {
 	})
 
 	const history = useHistory()
+	const location = useLocation()
 	const dispatch = useDispatch()
+	
+	useEffect(() => {
+		// change query params data
+		if (location.search !== '') {
+			const params = new URLSearchParams(location.search)
+			setSearchReq({
+				searchString: params.get('q'),
+				category: params.get('category'),
+				order: params.get('orderBy')
+			})
+		}
+	}, [location.search])
 	
 	const handleSubmit = e => {
 		e.preventDefault()
 
 		if (searchReq.searchString.trim() !== '') {
-			dispatch(saveReqParams(searchReq))
+			
+			// dispatch(saveReqParams(searchReq))
+			history.push({
+				pathname: `/`,
+				search: `?q=${searchReq.searchString}&category=${searchReq.category}&orderBy=${searchReq.order}`
+			}, {books: [], totalItems: 0})
 			dispatch(getBooks(searchReq, false))
-			history.push('/')
+			
 		} else {
 			setInvalidSearch(true)
 			setTimeout(() => setInvalidSearch(false), 5000)

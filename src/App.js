@@ -4,8 +4,7 @@ import store from './redux/store'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 import Search from './components/Search'
-import BooksList from './components/BooksList'
-import LoadMoreBtn from './components/LoadMoreBtn'
+import Home from './components/Home'
 import Book from './components/Book'
 
 function App() {
@@ -15,8 +14,7 @@ function App() {
 	  		<Search />
 	  		<Switch>
 	  			<Route exact path='/'>
-	    			<BooksList />
-	    			<LoadMoreBtn />
+	    			<Home />
 	    		</Route>
 	    		<Route path='/:id'>
 	    			<Book />

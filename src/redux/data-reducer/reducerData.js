@@ -4,7 +4,8 @@ import {
 	GET_BOOKS_FAILURE,
 	GET_MORE_BOOKS_REQUEST,
 	GET_MORE_BOOKS_SUCCESS,
-	GET_MORE_BOOKS_FAILURE
+	GET_MORE_BOOKS_FAILURE,
+	CHANGE_DATA
 } from './actionTypes'
 
 const initialState = {
@@ -18,6 +19,11 @@ const initialState = {
 
 const reducerData = (state=initialState, action) => {
 	switch(action.type) {
+		case CHANGE_DATA:
+			return {
+				...state,
+				data: action.payload
+			}
 		case GET_BOOKS_REQUEST:
 			return {
 				...state,

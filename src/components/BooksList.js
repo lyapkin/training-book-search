@@ -1,14 +1,31 @@
-import React from 'react'
-import {useSelector} from 'react-redux'
-import {Link} from 'react-router-dom'
+import React, { useEffect } from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import {Link, useHistory, useLocation} from 'react-router-dom'
 
 import '../component-styles/BooksList.css'
+
+import {changeData} from '../redux/data-reducer/actions'
 
 const BooksList = () => {
 	const books = useSelector(state => state.data.data.books)
 	const totalItems = useSelector(state => state.data.data.totalItems)
-	const loading = useSelector(state => state.data.loading)
-	const error = useSelector(state => state.data.error)
+
+	const history = useHistory()
+	const location = useLocation()
+
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		if (location.state?.totalItems === 0) {
+			history.replace(`/${location.search}`, {books: books, totalItems: totalItems})
+		}
+	}, [books])
+
+	useEffect(() => {
+		if (location.state?.totalItems) {
+			dispatch(changeData(location.state))
+		}
+	}, [location.search])
 	
 	const list = books.map(book => (
 			<article className='booklist__item' key={book.id}>
@@ -22,15 +39,6 @@ const BooksList = () => {
 
 	return (
 		<section className='search-result'>
-			{
-				loading ? (
-					<h2>loading</h2>
-				) :
-				error ? (
-					<h2>{error}</h2>
-				) : null
-			}
-			
 			
 			{totalItems ? <div>Found {totalItems} results</div> : null}
 			<div className='booklist'>	
