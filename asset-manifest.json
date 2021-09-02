@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/training-book-search/static/css/main.17f2be15.chunk.css",
+    "main.js": "/training-book-search/static/js/main.908c66f0.chunk.js",
+    "main.js.map": "/training-book-search/static/js/main.908c66f0.chunk.js.map",
+    "runtime-main.js": "/training-book-search/static/js/runtime-main.504e0290.js",
+    "runtime-main.js.map": "/training-book-search/static/js/runtime-main.504e0290.js.map",
+    "static/js/2.0f8d0669.chunk.js": "/training-book-search/static/js/2.0f8d0669.chunk.js",
+    "static/js/2.0f8d0669.chunk.js.map": "/training-book-search/static/js/2.0f8d0669.chunk.js.map",
+    "static/js/3.3617a829.chunk.js": "/training-book-search/static/js/3.3617a829.chunk.js",
+    "static/js/3.3617a829.chunk.js.map": "/training-book-search/static/js/3.3617a829.chunk.js.map",
+    "index.html": "/training-book-search/index.html",
+    "static/css/main.17f2be15.chunk.css.map": "/training-book-search/static/css/main.17f2be15.chunk.css.map",
+    "static/js/2.0f8d0669.chunk.js.LICENSE.txt": "/training-book-search/static/js/2.0f8d0669.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.504e0290.js",
+    "static/js/2.0f8d0669.chunk.js",
+    "static/css/main.17f2be15.chunk.css",
+    "static/js/main.908c66f0.chunk.js"
+  ]
+}
