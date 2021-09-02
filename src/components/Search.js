@@ -39,7 +39,7 @@ const Search = () => {
 			
 			// dispatch(saveReqParams(searchReq))
 			history.push({
-				pathname: `/`,
+				pathname: `/training-book-search`,
 				search: `?q=${searchReq.searchString}&category=${searchReq.category}&orderBy=${searchReq.order}`
 			}, {books: [], totalItems: 0})
 			dispatch(getBooks(searchReq, false))

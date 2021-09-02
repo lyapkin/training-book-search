@@ -17,7 +17,7 @@ const BooksList = () => {
 
 	useEffect(() => {
 		if (location.state?.totalItems === 0) {
-			history.replace(`/${location.search}`, {books: books, totalItems: totalItems})
+			history.replace(`/training-book-search/${location.search}`, {books: books, totalItems: totalItems})
 		}
 	}, [books])
 
@@ -30,7 +30,7 @@ const BooksList = () => {
 	const list = books.map(book => (
 			<article className='booklist__item' key={book.id}>
 				<img src={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : ''} alt=''/>
-				<Link to={`/${book.id}`} >{book.volumeInfo.title}</Link>
+				<Link to={`/training-book-search/${book.id}`} >{book.volumeInfo.title}</Link>
 				<span>Authors: {book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : ''}</span>
 				<span>Category: {book.volumeInfo.mainCategory}</span>
 			</article>

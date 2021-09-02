@@ -13,10 +13,10 @@ function App() {
 	  	<Router>
 	  		<Search />
 	  		<Switch>
-	  			<Route exact path='/'>
+	  			<Route exact path='/training-book-search'>
 	    			<Home />
 	    		</Route>
-	    		<Route path='/:id'>
+	    		<Route path='/training-book-search/:id'>
 	    			<Book />
 	    		</Route>
 	    	</Switch>
